@@ -7,6 +7,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/lab_02_servlet/pom.xml" />
+        <option value="$PROJECT_DIR$/lab_03_freemarker/pom.xml" />
       </list>
     </option>
   </component>
