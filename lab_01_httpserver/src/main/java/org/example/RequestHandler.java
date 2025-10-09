@@ -67,12 +67,12 @@ public class RequestHandler {
                     logger.debug("end of request header");
                     OutputStream os = clientSocket.getOutputStream();
                     logger.debug("outputStream" + os);
-                    IResourceService resourceService = Application.resourceMap.get(resource);
+                    IResourceService resourceService = Application.resourceMap.get(resource); // тут мы получили по ресурсу класс который импеменитруется от IRS
                     if (resourceService != null) {
                         // TODO передавать метод, передавать Map с параметрами в функцию service
-                        resourceService.service("GET", params, os);
+                        resourceService.service("GET", params, os); // вызываем метод класса, передавая параметры
                     } else {
-                        new NotFoundService().service("GET", params, os);
+                        new NotFoundService().service("GET", params, os);// если мы получили ресурс на который у нас нет страницы, то мы выкидываем 404 страницу
                     }
                     os.flush();
                     logger.debug("outputStream" + os);

@@ -21,9 +21,10 @@ public class HttpServer {
             ServerSocket serverSocket = new ServerSocket(8080);
             while (true) {
                 // Ожидаем подключения клиента
-                Socket clientSocket = serverSocket.accept();
+                Socket clientSocket = serverSocket.accept(); // тут хранится ip, порт клиента, InputStream и OutputStream для чтения и записи, Состояние подключения
                 // Дождались клиента
                 new Thread(() -> requestHandler.handle(clientSocket)).start();
+
             }
             //serverSocket.close();
         } catch (IOException e) {

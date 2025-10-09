@@ -1,4 +1,5 @@
 package org.example;
+
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import org.apache.logging.log4j.LogManager;
@@ -23,18 +24,18 @@ public class HelloServlet implements Servlet {
         return null;
     }
 
-        @Override
-        public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
-            logger.debug(servletRequest);
-            String protocol = servletRequest.getProtocol();
-            String remoteAddr = servletRequest.getRemoteAddr();
-            int remotePort = servletRequest.getRemotePort();
-            Map<String, String[]> parameters = servletRequest.getParameterMap();
-            StringBuilder sb = new StringBuilder(" ");
+    @Override
+    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+        logger.debug(servletRequest);
+        String protocol = servletRequest.getProtocol();
+        String remoteAddr = servletRequest.getRemoteAddr();
+        int remotePort = servletRequest.getRemotePort();
+        Map<String, String[]> parameters = servletRequest.getParameterMap();
+        StringBuilder sb = new StringBuilder(" ");
         sb.append("<html><body>")
                 .append("<div>protocol: ").append(protocol).append("</div>")
                 .append("<div>remoteAddr: ").append(remoteAddr).append("</div>")
-                .append("<div>remotePort: ").append(    remotePort).append("</div>");
+                .append("<div>remotePort: ").append(remotePort).append("</div>");
 
         parameters.forEach((key, value) -> sb.append("<div>param: ").append(key).append("</div>"));
         sb.append("</body></html>");
@@ -46,6 +47,7 @@ public class HelloServlet implements Servlet {
     public String getServletInfo() {
         return "";
     }
+
     @Override
     public void destroy() {
 

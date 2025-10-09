@@ -10,6 +10,6 @@ public class HomeService implements IResourceService {
         os.write("HTTP/1.1 200 OK\r\n".getBytes());
         os.write("Content-Type: text/html;charset=UTF-8\r\n".getBytes());
         os.write("\r\n".getBytes());
-        os.write("<html><body>Hello!</body></html>".getBytes());
+        os.write(("<html><body>Hello! \n\rparams: " + params.toString() + "</body></html>").getBytes());
     }
 }
