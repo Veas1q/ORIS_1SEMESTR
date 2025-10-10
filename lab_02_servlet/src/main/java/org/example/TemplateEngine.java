@@ -29,13 +29,20 @@ public class TemplateEngine  extends HttpServlet {
         logger.debug(req.getServletPath());
 
         Map<String, String> params = new HashMap<>();
-        Iterator<String> enumeration = req.getAttributeNames().asIterator();
-    
-        while (enumeration.hasNext()) {
-            String attributeName = enumeration.next();
-            String attributeValue = req.getAttribute(attributeName).toString();
-            logger.debug(attributeName + " : " + attributeValue);
-            params.put(attributeName, attributeValue);
+        Iterator<String> attrNames = req.getAttributeNames().asIterator();
+        while (attrNames.hasNext()) {
+            String attrName = attrNames.next();
+            String attrValue = req.getAttribute(attrName).toString();
+            logger.debug("ATTRIBUTE: " + attrName + " = " + attrValue);
+            params.put(attrName, attrValue);
+        }
+
+        Map<String, String[]> parameterMap = req.getParameterMap();
+        for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
+            String paramName = entry.getKey();
+            String paramValue = entry.getValue()[0]; // берем первое значение
+            logger.debug("PARAM: " + paramName + " = " + paramValue);
+            params.put(paramName, paramValue);
         }
 
 
