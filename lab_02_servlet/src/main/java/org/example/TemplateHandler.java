@@ -20,6 +20,7 @@ public class TemplateHandler {
 
             writer.write(template); //перезаписываем наш html файл
 
+
         } catch (IOException e) {
             System.out.println("Шаблон не найден");
             throw new RuntimeException(e);

@@ -23,7 +23,7 @@ public class IndexServlet extends HttpServlet {
         params.put("remoteAddr", remoteAddr);
         params.put("remotePort", remotePort+"");
         if(parameters.get("username") == null){
-            params.put("username","Александр");
+            params.put("username","Aleksandr");
         }else {
             params.put("username", (parameters.get("username")[0]));
         }
