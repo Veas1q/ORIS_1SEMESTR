@@ -63,11 +63,11 @@ public class RequestHandler {
                 System.out.println(message);
                 logger.debug(message);
 
-                if (message.isEmpty()) {
+                if (message.isEmpty()) { // ждем пока не прочитаем все пакеты от клиента
                     logger.debug("end of request header");
                     OutputStream os = clientSocket.getOutputStream();
                     logger.debug("outputStream" + os);
-                    IResourceService resourceService = Application.resourceMap.get(resource); // тут мы получили по ресурсу класс который импеменитруется от IRS
+                    IResourceService resourceService = Application.resourceMap.get(resource); // тут мы получили по ресурсу класс который имлеменитруется от IRS
                     if (resourceService != null) {
                         // TODO передавать метод, передавать Map с параметрами в функцию service
                         resourceService.service("GET", params, os); // вызываем метод класса, передавая параметры
