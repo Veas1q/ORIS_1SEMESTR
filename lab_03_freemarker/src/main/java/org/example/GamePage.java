@@ -29,31 +29,30 @@ public class GamePage extends HttpServlet {
         GameState gameState = new GameState();
         gamers.put(uid, gameState);
         req.setAttribute("table", gameState.getTable());
-        req.setAttribute("uuid", uid);
-
+        req.setAttribute("uid", uid);
 
 
         req.getRequestDispatcher("/game.ftlh").forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String row = req.getParameter("row");
-        String col = req.getParameter("col");
-        String uid = req.getParameter("uid");
-        logger.debug("uid: " + uid, "row: " + row, "col: " + col);
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String row = request.getParameter("row");
+        String column = request.getParameter("col");
+        String uid = request.getParameter("uid");
 
+        logger.debug("uid " + uid + ", row " + row + ", col " + column);
 
         GameState gameState = gamers.get(uid);
+
         List<Row> table = gameState.getTable();
         Row trow = table.get(Integer.parseInt(row) - 1);
-        trow.setT("k.jpg");
+        trow.setT("k.png");
 
-        req.setAttribute("table", gameState.getTable());
-        req.setAttribute("uuid", uid);
+        request.setAttribute("table", table);
+        request.setAttribute("uid", uid);
 
-
-
-        req.getRequestDispatcher("/game.ftlh").forward(req, resp);
+        request.getRequestDispatcher("/game.ftlh")
+                .forward(request, response);
     }
 }

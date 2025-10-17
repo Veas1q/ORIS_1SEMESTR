@@ -1,9 +1,9 @@
 package org.example;
 
 public class Row {
-    private String f = "p.jpg";
-    private String s = "p.jpg";
-    private String t = "p.jpg";
+    private String f = "p.png";
+    private String s = "p.png";
+    private String t = "p.png   ";
 
     public String getF() {
         return f;

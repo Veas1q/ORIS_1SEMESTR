@@ -11,10 +11,9 @@
             color: red;
         }
 
-        table, td{
+        table, td {
             border: 1px solid black;
         }
-
         .div_style {
             border: 1px solid #9fb5de;
         }
@@ -30,15 +29,15 @@
 <table width="300">
     <#list table as r>
         <tr>
-            <td><img src = "/lab03/static/img/${r.f}" height="64" width="64"></td>
-            <td><img src = "/lab03/static/img/${r.s}" height="64" width="64"></td>
-            <td><img src = "/lab03/static/img/${r.t}" height="64" width="64"></td>
+            <td><img src="/lab_03_freemarker_war/static/img/${r.f}" height="64" width="64"></td>
+            <td><img src="/lab_03_freemarker_war/static/img/${r.s}" height="64" width="64"></td>
+            <td><img src="/lab_03_freemarker_war/static/img/${r.t}" height="64" width="64"></td>
         </tr>
     </#list>
 </table>
 
 
-<form method='post' action='/lab03/game'>
+<form method='post' action='/lab_03_freemarker_war/game'>
     <input type="hidden" name="uid" value="${uid}">
     <div>
         <label>Номер строки:</label>
@@ -46,7 +45,7 @@
     </div>
     <div>
         <label>Номер столбца:</label>
-        <input type='text' name='column'>
+        <input type='text' name='col'>
     </div>
     <div>
         <input type="submit" value="Отправить">
