@@ -47,7 +47,16 @@ public class GamePage extends HttpServlet {
 
         List<Row> table = gameState.getTable();
         Row trow = table.get(Integer.parseInt(row) - 1);
-        trow.setT("k.png");
+        switch (column) {
+            case "1":
+                trow.setF("k.png");
+                break;
+            case "2":
+                trow.setS("k.png");
+                break;
+            case "3":
+                trow.setT("k.png");
+        }
 
         request.setAttribute("table", table);
         request.setAttribute("uid", uid);

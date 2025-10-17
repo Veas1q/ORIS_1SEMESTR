@@ -3,7 +3,7 @@ package org.example;
 public class Row {
     private String f = "p.png";
     private String s = "p.png";
-    private String t = "p.png   ";
+    private String t = "p.png";
 
     public String getF() {
         return f;
@@ -28,5 +28,7 @@ public class Row {
     public void setT(String t) {
         this.t = t;
     }
+
+
 }
 
