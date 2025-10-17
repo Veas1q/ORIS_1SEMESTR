@@ -46,7 +46,14 @@ public class GamePage extends HttpServlet {
         GameState gameState = gamers.get(uid);
 
         List<Row> table = gameState.getTable();
-        Row trow = table.get(Integer.parseInt(row) - 1);
+        Row trow = new Row();
+
+        if (table.get(Integer.parseInt(row)) !=  null) {
+            trow = table.get(Integer.parseInt(row) - 1);
+        }else {
+            System.out.println("Цена не соответствует ни одному из значений");
+        }
+
         switch (column) {
             case "1":
                 trow.setF("k.png");
@@ -56,6 +63,9 @@ public class GamePage extends HttpServlet {
                 break;
             case "3":
                 trow.setT("k.png");
+                break;
+            default:
+                break;
         }
 
         request.setAttribute("table", table);
