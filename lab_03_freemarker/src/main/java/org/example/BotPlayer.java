@@ -9,27 +9,27 @@ public class BotPlayer {
     public void makeMove(GameState gameState) {
         List<Row> table = gameState.getTable();
 
-        // ✅ СТРАТЕГИЯ 1: Попробовать выиграть
+        //  СТРАТЕГИЯ 1: Попробовать выиграть
         String winningMove = findWinningMove(table, "o.png");
         if (winningMove != null) {
             makeMoveFromString(table, winningMove, "o.png");
             return;
         }
 
-        // ✅ СТРАТЕГИЯ 2: Блокировать победу противника
+        //  СТРАТЕГИЯ 2: Блокировать победу противника
         String blockingMove = findWinningMove(table, "k.png");
         if (blockingMove != null) {
             makeMoveFromString(table, blockingMove, "o.png");
             return;
         }
 
-        // ✅ СТРАТЕГИЯ 3: Занять центр если свободен
+        //  СТРАТЕГИЯ 3: Занять центр если свободен
         if (getCellValue(table, 1, 1).equals("p.png")) {
             setCellValue(table, 1, 1, "o.png");
             return;
         }
 
-        // ✅ СТРАТЕГИЯ 4: Случайный ход из оставшихся
+        //  СТРАТЕГИЯ 4: Случайный ход из оставшихся
         List<String> freeCells = getFreeCells(table);
         if (!freeCells.isEmpty()) {
             Random random = new Random();
@@ -38,7 +38,7 @@ public class BotPlayer {
         }
     }
 
-    // ✅ Найти выигрышный ход для указанного игрока
+    //  Найти выигрышный ход для указанного игрока
     private String findWinningMove(List<Row> table, String playerSymbol) {
         List<String> freeCells = getFreeCells(table);
 
@@ -59,7 +59,7 @@ public class BotPlayer {
         return null;
     }
 
-    // ✅ Проверить победу для конкретного игрока
+    //  Проверить победу для конкретного игрока
     private boolean checkWinForPlayer(List<Row> table, String playerSymbol) {
         String[][] board = new String[3][3];
         for (int i = 0; i < 3; i++) {
@@ -87,7 +87,7 @@ public class BotPlayer {
         return false;
     }
 
-    // ✅ Получить список свободных клеток в формате "row,col"
+    //  Получить список свободных клеток в формате "row,col"
     private List<String> getFreeCells(List<Row> table) {
         List<String> freeCells = new ArrayList<>();
         for (int row = 0; row < 3; row++) {
@@ -100,7 +100,7 @@ public class BotPlayer {
         return freeCells;
     }
 
-    // ✅ Сделать ход из строки "row,col"
+    //  Сделать ход из строки "row,col"
     private void makeMoveFromString(List<Row> table, String cell, String symbol) {
         String[] parts = cell.split(",");
         int row = Integer.parseInt(parts[0]);
