@@ -7,8 +7,10 @@
 
 </head>
 <body>
+
 <div style="color:red">${errormessage!}</div>
-<form accept-charset="/auth/usercheck" method="post">
+
+<form action="/auth/usercheck" method="post">
     <div>
         <label>Имя пользователя</label>
         <input type="text" name="username">
