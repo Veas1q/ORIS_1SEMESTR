@@ -1,5 +1,4 @@
 package org.example.lab_04_db.controller;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
@@ -15,26 +14,33 @@ import java.io.IOException;
 public class TestSessionServlet extends HttpServlet {
 
     final static Logger logger = LogManager.getLogger(TestSessionServlet.class);
-    boolean flag = false;
+
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        boolean flag = false;
+
         Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("JSESSIONID")) {
-                request.setAttribute("sessionId", cookie.getValue());
-                flag = true;
-                break;
+        if (cookies != null) {
+            for (Cookie c : cookies) {
+                if (c.getName().equals("JSESSIONID")) {
+                    request.setAttribute("sessionId", c.getValue());
+                    flag = true;
+                    break;
+                }
             }
         }
+
+
+
         if (!flag) {
             request.setAttribute("sessionId", "JSESSIONID не нашли");
             Cookie cookie = new Cookie("JSESSIONID", "123");
             response.addCookie(cookie);
         }
 
-
-
-        request.getRequestDispatcher("session.ftlh").forward(request, response);
-        }
+        request.getRequestDispatcher("/session.ftlh")
+                .forward(request, response);
+    }
 
 }

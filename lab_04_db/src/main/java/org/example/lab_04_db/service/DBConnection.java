@@ -5,27 +5,28 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
+
     private static Connection connection;
+
     public static Connection getConnection() {
         if (connection != null) {
             return connection;
-        }else{
+        } else {
             try {
                 connection =
                         DriverManager.getConnection(
-                                // адрес БД, имя пользователя, пароль
-                                "jdbc:postgresql://localhost:5432/demo","postgres","Hepi_pro323");
-
+                                // адрес БД , имя пользователя, пароль
+                                "jdbc:postgresql://localhost:5432/demo","postgres","passwd");
+                return connection;
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         }
-        return connection;
     }
 
     public static void releaseConnection() {
         try {
-            if (connection != null && connection.isClosed()) {
+            if (connection != null && !connection.isClosed()) {
                 connection.close();
             }
         } catch (SQLException e) {
@@ -33,5 +34,3 @@ public class DBConnection {
         }
     }
 }
-
-

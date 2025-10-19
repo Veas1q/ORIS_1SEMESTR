@@ -1,17 +1,11 @@
 package org.example.lab_04_db.model;
+
 public class Airplane {
+
     private String code;
     private String model;
     private Integer range;
     private Integer speed;
-    public Airplane() {
-    }
-    public Airplane(String code, String model, Integer range, Integer speed) {
-        this.code = code;
-        this.model = model;
-        this.range = range;
-        this.speed = speed;
-    }
 
     public String getCode() {
         return code;
@@ -42,6 +36,16 @@ public class Airplane {
     }
 
     public void setSpeed(Integer speed) {
+        this.speed = speed;
+    }
+
+    public Airplane() {
+    }
+
+    public Airplane(String code, String model, Integer range, Integer speed) {
+        this.code = code;
+        this.model = model;
+        this.range = range;
         this.speed = speed;
     }
 }

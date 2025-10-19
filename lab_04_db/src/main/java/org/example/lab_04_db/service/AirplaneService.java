@@ -4,7 +4,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.example.lab_04_db.model.Airplane;
 import org.example.lab_04_db.repository.AirplaneRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AirplaneService {
