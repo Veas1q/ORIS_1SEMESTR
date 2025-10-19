@@ -37,6 +37,7 @@ public class TemplateEngine  extends HttpServlet {
             params.put(attrName, attrValue);
         }
 
+
         Map<String, String[]> parameterMap = req.getParameterMap();
         for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
             String paramName = entry.getKey();
@@ -45,8 +46,7 @@ public class TemplateEngine  extends HttpServlet {
             params.put(paramName, paramValue);
         }
 
-
-        String fileName = req.getServletPath().substring(1);
+        String fileName = req.getServletPath().substring(1); //получаем ресурса
         URL url = TemplateEngine.class.getClassLoader().getResource("templates/" + fileName);
 
         String template = null;

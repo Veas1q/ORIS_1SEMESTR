@@ -10,7 +10,7 @@ import java.io.Writer;
 import java.util.Map;
 
 @WebServlet(value = {"/", "/hello"})
-public class HelloServlet implements Servlet {
+public class    HelloServlet implements Servlet {
 
     final static Logger logger = LogManager.getLogger(HelloServlet.class);
 

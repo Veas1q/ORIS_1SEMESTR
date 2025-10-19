@@ -48,7 +48,7 @@ public class GamePage extends HttpServlet {
         List<Row> table = gameState.getTable();
         Row trow = new Row();
 
-        if (table.get(Integer.parseInt(row)) !=  null) {
+        if (Integer.parseInt(column) >= 0&& Integer.parseInt(column) <= 3) {
             trow = table.get(Integer.parseInt(row) - 1);
         }else {
             System.out.println("Цена не соответствует ни одному из значений");
