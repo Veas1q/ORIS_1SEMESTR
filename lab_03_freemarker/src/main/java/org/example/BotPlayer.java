@@ -87,7 +87,7 @@ public class BotPlayer {
         return false;
     }
 
-    //  Получить список свободных клеток в формате "row,col"
+    //  Получить список свободных клеток в формате "row, col"
     private List<String> getFreeCells(List<Row> table) {
         List<String> freeCells = new ArrayList<>();
         for (int row = 0; row < 3; row++) {
@@ -100,7 +100,7 @@ public class BotPlayer {
         return freeCells;
     }
 
-    //  Сделать ход из строки "row,col"
+    //  Сделать ход из строки "row, col"
     private void makeMoveFromString(List<Row> table, String cell, String symbol) {
         String[] parts = cell.split(",");
         int row = Integer.parseInt(parts[0]);

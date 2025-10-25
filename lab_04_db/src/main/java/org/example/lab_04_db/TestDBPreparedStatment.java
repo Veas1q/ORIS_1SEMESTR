@@ -10,7 +10,7 @@ public class TestDBPreparedStatment {
 
             Connection connection =
                     DriverManager.getConnection(
-                            // адрес БД , имя пользователя, пароль
+                            // адрес БД, имя пользователя, пароль
                             "jdbc:postgresql://localhost:5432/demo","postgres","passwd");
 
             String sql = "select * from bookings.airplanes_data where airplane_code = ? ";
