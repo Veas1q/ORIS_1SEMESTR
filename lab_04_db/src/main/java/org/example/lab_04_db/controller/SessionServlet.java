@@ -19,17 +19,24 @@ public class SessionServlet extends HttpServlet {
         // ищется ассоциированная с ней сессия (объект HttpSession)
         // если не находится - создается новый (если не указан флаг false)
         HttpSession session = request.getSession(false);
-
+        String username = "инкогнито"; // значение по умолчанию
         if (session == null) {
             session = request.getSession(true);
-            session.setAttribute("username", request.getParameter("user"));
-            request.setAttribute("username", "инкогнито");
+            String userParam = request.getParameter("user");
+            if (userParam != null && !userParam.trim().isEmpty()) {
+                username = userParam;
+                session.setAttribute("username", username);
+            }
         } else {
-            request.setAttribute("username", session.getAttribute("username"));
+            String sessionUsername = (String) session.getAttribute("username");
+            if (sessionUsername != null) {
+                username = sessionUsername;
+            }
         }
 
 
         request.setAttribute("sessionId", session.getId());
+        request.setAttribute("username", username);
 
         request.getRequestDispatcher("/session.ftlh")
                 .forward(request, response);

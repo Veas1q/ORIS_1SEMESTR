@@ -10,8 +10,10 @@
 <h1>Тест сессии</h1>
 
 
-
 <div>${sessionId}</div>
+пшп
+<div>${username}</div>
+
 
 </body>
 </html>
