@@ -29,17 +29,6 @@
 <body>
 <div class="container">
     <h1>✈️ Онлайн-табло аэропорта</h1>
-
-    <!-- ДИАГНОСТИКА -->
-    <div style="background: #e74c3c; color: white; padding: 10px; margin-bottom: 10px;">
-        <strong>ДИАГНОСТИКА:</strong><br>
-        airports: <#if airports??>${airports?size} аэропортов<#else>NULL</#if><br>
-        currentAirport: ${currentAirport!"NULL"}<br>
-        boardType: ${boardType!"NULL"}<br>
-        selectedDate: ${selectedDate!"NULL"}<br>
-        flights: <#if flights??>${flights?size} рейсов<#else>NULL</#if>
-    </div>
-
     <!-- Текущие настройки -->
     <div class="current-selection">
         <strong>Показываем:</strong>
@@ -114,7 +103,13 @@
             <#list flights as flight>
                 <tr>
                     <td><strong>${flight.flightNo}</strong></td>
-                    <td>${flight.time?string("HH:mm")}</td>
+                    <td>
+                        <#if flight.time??>
+                            ${flight.time?datetime("yyyy-MM-dd'T'HH:mm")?time}
+                        <#else>
+                            --:--
+                        </#if>
+                    </td>
                     <td>${flight.city}</td>
                     <td>${flight.airportName} (${flight.airportCode})</td>
                     <td class="
