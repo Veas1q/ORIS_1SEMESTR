@@ -6,31 +6,19 @@ import java.sql.SQLException;
 
 public class DBConnection {
 
-    private static Connection connection;
-
     public static Connection getConnection() {
-        if (connection != null) {
-            return connection;
-        } else {
-            try {
-                connection =
-                        DriverManager.getConnection(
-                                // адрес БД , имя пользователя, пароль
-                                "jdbc:postgresql://localhost:5432/demo","postgres","Hepi_pro323");
-                return connection;
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
-
-    public static void releaseConnection() {
         try {
-            if (connection != null && !connection.isClosed()) {
-                connection.close();
-            }
+            // ВСЕГДА создаем новое соединение
+            Connection connection = DriverManager.getConnection(
+                    "jdbc:postgresql://localhost:5432/demo",
+                    "postgres",
+                    "Hepi_pro323"  // ← твой пароль
+            );
+            System.out.println("✅ Создано новое подключение к БД");
+            return connection;
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("❌ Ошибка подключения к БД: " + e.getMessage());
+            throw new RuntimeException("Не удалось подключиться к БД", e);
         }
     }
 }

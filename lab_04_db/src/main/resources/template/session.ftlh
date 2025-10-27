@@ -11,7 +11,7 @@
 
 
 <div>${sessionId}</div>
-пшп
+
 <div>${username}</div>
 
 

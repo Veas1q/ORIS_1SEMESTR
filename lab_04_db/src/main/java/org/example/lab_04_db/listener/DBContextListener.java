@@ -14,8 +14,8 @@ public class DBContextListener implements ServletContextListener {
             e.printStackTrace();
         }
     }
-
-    public void contextDestroyed(ServletContextEvent sce) {
-        DBConnection.releaseConnection();
-    }
+//
+//    public void contextDestroyed(ServletContextEvent sce) {
+//        DBConnection.releaseConnection();
+//    }
 }
