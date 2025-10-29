@@ -17,19 +17,21 @@ public class UserCheckServlet extends HttpServlet {
     final static Logger logger = LogManager.getLogger(UserCheckServlet.class);
 
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
         HttpSession session = request.getSession(false);
+        String resource;
 
-        String resource = "/index.ftlh";
-
-        if (session == null || session.getAttribute("user") == null) {
-
+        // Если сессия существует и пользователь уже залогинен — сразу на index
+        if (session != null && session.getAttribute("user") != null) {
+            resource = "/index.ftlh";
+        } else {
+            // Проверяем логин/пароль
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            // select id, username, password from users where username = ? ;
 
-            if (username.equals("admin") && password.equals("admin")) {
+            if ("admin".equals(username) && "admin".equals(password)) {
                 session = request.getSession(true);
                 session.setAttribute("user", username);
                 resource = "/index.ftlh";
@@ -39,8 +41,7 @@ public class UserCheckServlet extends HttpServlet {
             }
         }
 
-        request.getRequestDispatcher(resource)
-                .forward(request, response);
+        request.getRequestDispatcher(resource).forward(request, response);
     }
 
 }
