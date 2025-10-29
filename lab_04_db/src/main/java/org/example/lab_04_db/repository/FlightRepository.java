@@ -12,8 +12,6 @@ public class FlightRepository {
     public List<Flight> findFlights(String airportCode, String boardType, LocalDate date) {
         List<Flight> flights = new ArrayList<>();
 
-        System.out.println("🔍 Ищем рейсы: airport=" + airportCode + ", type=" + boardType + ", date=" + date);
-
         String sql;
         if ("departure".equals(boardType)) {
             sql = """
@@ -62,12 +60,10 @@ public class FlightRepository {
                 Flight flight = new Flight();
                 flight.setFlightNo(resultSet.getString("flight_no"));
 
-                // ВАЖНО: Преобразуем Timestamp в LocalDateTime
                 Timestamp timestamp = resultSet.getTimestamp("time");
                 if (timestamp != null) {
                     flight.setTime(timestamp.toLocalDateTime());
                 } else {
-                    // Если время null, устанавливаем текущее время
                     flight.setTime(java.time.LocalDateTime.now());
                 }
 
@@ -83,7 +79,6 @@ public class FlightRepository {
             statement.close();
 
         } catch (SQLException e) {
-            System.out.println("❌ Ошибка SQL: " + e.getMessage());
             e.printStackTrace();
         } finally {
             if (connection != null) {
@@ -95,7 +90,6 @@ public class FlightRepository {
             }
         }
 
-        System.out.println("✅ Найдено рейсов: " + flights.size());
         return flights;
     }
 }
