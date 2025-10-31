@@ -6,14 +6,13 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.controller.LoginServlet;
 
 import java.io.IOException;
 
 @WebFilter("/*")
 public class AuthFilter implements Filter {
 
-    final static Logger logger = LogManager.getLogger(LoginServlet.class);
+    final static Logger logger = LogManager.getLogger(AuthFilter.class);
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
@@ -25,7 +24,7 @@ public class AuthFilter implements Filter {
                 (session == null || session.getAttribute("user") == null)) {
             //request.getRequestDispatcher("/login").forward(request, response);
             logger.debug("редирект");
-            ((HttpServletResponse) response).sendRedirect("/auth/login");
+            ((HttpServletResponse) response).sendRedirect("/login");
         } else {
             logger.debug("пропускаем");
             filterChain.doFilter(request, response);

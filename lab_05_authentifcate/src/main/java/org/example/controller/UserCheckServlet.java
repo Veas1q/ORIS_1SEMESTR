@@ -23,20 +23,17 @@ public class UserCheckServlet extends HttpServlet {
 
         String resource = "/index.ftlh";
 
-        if (session == null || session.getAttribute("user") == null) {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        // select id, username, password from users where username = ? ;
 
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            // select id, username, password from users where username = ? ;
-
-            if (username.equals("admin") && password.equals("admin")) {
-                session = request.getSession(true);
-                session.setAttribute("user", username);
-                resource = "/index.ftlh";
-            } else {
-                request.setAttribute("errormessage", "Неверное имя пользователя или пароль!");
-                resource = "/login.ftlh";
-            }
+        if (username.equals("admin") && password.equals("admin")) {
+            session = request.getSession(true);
+            session.setAttribute("user", username);
+            resource = "/index.ftlh";
+        } else {
+            request.setAttribute("errormessage", "Неверное имя пользователя или пароль!");
+            resource = "/login.ftlh";
         }
 
         request.getRequestDispatcher(resource)
