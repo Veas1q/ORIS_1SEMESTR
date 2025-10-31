@@ -11,11 +11,12 @@ public class UserService {
 
     private UserRepository userRepository = new UserRepository();
 
-    public void addUser(User user) throws SQLException, ClassNotFoundException {
+    public void addUser(User user) throws Exception {
         BCryptPasswordEncoder bCrypt = new BCryptPasswordEncoder();
-        user.setHashPassword(bCrypt.encode("admin"));
+        user.setHashPassword(
+                bCrypt.encode(user.getHashPassword()));
+
         userRepository.addUser(user);
     }
+
 }
-
-

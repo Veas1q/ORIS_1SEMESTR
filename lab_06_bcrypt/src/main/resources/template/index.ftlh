@@ -1,25 +1,15 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Тест аутентификации</title>
-    <meta name="description" content="Тест аутентификации">
-
-    <style>
-        label {
-            color: red;
-        }
-
-        .div_style {
-            border: 1px solid #9fb5de;
-        }
-
-        div {
-            margin: 3px;
-        }
-    </style>
+    <title>Главная страница</title>
 </head>
 <body>
-<h1>Поздравляем ${user!}, вы свой!</h1>
+<h1>Добро пожаловать, ${user}!</h1>
+<p>Вы успешно вошли в систему</p>
+
+
+<form action="logout" method="POST">
+    <button type="submit">Выйти</button>
+</form>
 </body>
 </html>

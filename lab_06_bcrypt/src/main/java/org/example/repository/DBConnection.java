@@ -14,7 +14,7 @@ public class DBConnection {
 
     private static DataSource dataSource;
 
-    private static void init() throws ClassNotFoundException {
+    public static void init() throws ClassNotFoundException {
         Class.forName("org.postgres.sql.Driver");
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl("jdbc:postgresql://localhost:5432/postgres");
@@ -39,7 +39,7 @@ public class DBConnection {
         }
     }
 
-    public void destroy() {
+    public static void destroy() {
         ((HikariDataSource)dataSource).close();
     }
 

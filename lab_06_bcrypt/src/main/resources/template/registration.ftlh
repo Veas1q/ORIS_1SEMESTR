@@ -10,7 +10,7 @@
 
 <div style="color:red">${errormessage!}</div>
 
-<form action="/reg/registration" method="post">
+<form action="registration" method="post">
     <div>
         <label>Фамилия</label>
         <input type="text" name="lastname">

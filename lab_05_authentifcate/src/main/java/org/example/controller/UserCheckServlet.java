@@ -23,21 +23,6 @@ public class UserCheckServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
         String resource;
 
-<<<<<<< HEAD
-        String resource = "/index.ftlh";
-
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        // select id, username, password from users where username = ? ;
-
-        if (username.equals("admin") && password.equals("admin")) {
-            session = request.getSession(true);
-            session.setAttribute("user", username);
-            resource = "/index.ftlh";
-        } else {
-            request.setAttribute("errormessage", "Неверное имя пользователя или пароль!");
-            resource = "/login.ftlh";
-=======
         // Если сессия существует и пользователь уже залогинен — сразу на index
         if (session != null && session.getAttribute("user") != null) {
             resource = "/index.ftlh";
@@ -54,10 +39,8 @@ public class UserCheckServlet extends HttpServlet {
                 request.setAttribute("errormessage", "Неверное имя пользователя или пароль!");
                 resource = "/login.ftlh";
             }
->>>>>>> refs/remotes/origin/master
         }
 
         request.getRequestDispatcher(resource).forward(request, response);
     }
-
 }

@@ -1,14 +1,23 @@
 package org.example.repository;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.model.User;
 
 import java.sql.*;
-
 public class UserRepository {
-    public void addUser(User user) throws SQLException, ClassNotFoundException {
+
+    final static Logger logger = LogManager.getLogger(UserRepository.class);
+
+    public void addUser(User user) throws Exception {
         Connection connection = DBConnection.getConnection();
-        PreparedStatement statement = connection.prepareStatement("select id from nwxtval 'user_seq' as id");
-        ResultSet resultSet = statement.getResultSet();
+        connection.setAutoCommit(false);
+
+        PreparedStatement statement =
+                connection.prepareStatement("select id from nextval('user_seq') as id");
+
+        ResultSet resultSet = statement.executeQuery();
+
         Long id = null;
         if (resultSet.next()) {
             id = resultSet.getLong("id");
@@ -16,20 +25,22 @@ public class UserRepository {
         resultSet.close();
         statement.close();
 
-        if (if != null){
+        if (id != null) {
             user.setId(id);
         } else {
-            throw new Exception("Не удалось присвоить индетификатор");
+            throw new Exception("Не удалось присвоить идентификатор!");
         }
 
-        statement = connection.prepareStatement("insert into users (id, username, hashpassword) values (?, ?, ?)");
+        statement = connection.prepareStatement(
+                "insert into users (id, username, hashpassword) values (?, ?, ?)");
         statement.setLong(1, id);
         statement.setString(2, user.getUsername());
         statement.setString(3, user.getHashPassword());
         int countRow = statement.executeUpdate();
         statement.close();
 
-        statement = connection.prepareStatement("insert into userinfo (id, lastname, firstname, phone) values (?, ?, ?, ?)");
+        statement = connection.prepareStatement(
+                "insert into userinfo (id, lastname, firstname, phone) values ( ?, ? , ? , ?)");
         statement.setLong(1, id);
         statement.setString(2, user.getLastName());
         statement.setString(3, user.getFirstName());
@@ -39,6 +50,6 @@ public class UserRepository {
 
         connection.commit();
         connection.close();
-
     }
+
 }

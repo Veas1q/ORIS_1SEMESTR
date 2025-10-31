@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -11,7 +10,7 @@
 
 <div style="color:red">${errormessage!}</div>
 
-<form action="/auth/usercheck" method="post">
+<form action="usercheck" method="post">
     <div>
         <label>Имя пользователя</label>
         <input type="text" name="username">

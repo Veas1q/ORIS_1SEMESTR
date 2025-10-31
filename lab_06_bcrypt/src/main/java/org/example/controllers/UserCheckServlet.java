@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.example.services.UserService;
 
 import java.io.IOException;
 
@@ -16,7 +17,7 @@ public class UserCheckServlet extends HttpServlet {
 
     final static Logger logger = LogManager.getLogger(UserCheckServlet.class);
 
-
+    private UserService userService = new UserService();
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

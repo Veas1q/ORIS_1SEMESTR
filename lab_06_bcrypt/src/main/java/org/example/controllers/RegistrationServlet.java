@@ -17,35 +17,38 @@ import java.io.IOException;
 public class RegistrationServlet extends HttpServlet {
 
     final static Logger logger = LogManager.getLogger(RegistrationServlet.class);
-    private UserService userServices = new UserService();
+    private UserService userService = new UserService();
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRe
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/registration.ftlh")
+                .forward(request, response);
     }
 
-    @Override
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = new  User();
+
+        User user = new User();
         user.setUsername(request.getParameter("username"));
         user.setHashPassword(request.getParameter("password"));
-        user.getLastName(request.getParameter("lastname"));
+        user.setLastName(request.getParameter("lastname"));
         user.setFirstName(request.getParameter("firstname"));
         user.setPhone(request.getParameter("phone"));
 
         try {
-            userServices.addUser(user);
+            userService.addUser(user);
         } catch (Exception e) {
-            request.setAttribute("errrormessage", e.getMessage());
-            request.getRequestDispatcher("/registration.ftlh").forward(request, response);
-
+            request.setAttribute("errormessage", e.getMessage());
+            request.getRequestDispatcher("/registration.ftlh")
+                    .forward(request, response);
         }
+
         HttpSession session = request.getSession(true);
         session.setAttribute("user", user);
 
-        request.getRequestDispatcher("/login.ftlh")
+        request.setAttribute("user", user.getLastName());
+        request.getRequestDispatcher("/index.ftlh")
                 .forward(request, response);
     }
 }
