@@ -17,10 +17,13 @@ public class UserCheckServlet extends HttpServlet {
     final static Logger logger = LogManager.getLogger(UserCheckServlet.class);
 
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
         HttpSession session = request.getSession(false);
+        String resource;
 
+<<<<<<< HEAD
         String resource = "/index.ftlh";
 
         String username = request.getParameter("username");
@@ -34,10 +37,27 @@ public class UserCheckServlet extends HttpServlet {
         } else {
             request.setAttribute("errormessage", "Неверное имя пользователя или пароль!");
             resource = "/login.ftlh";
+=======
+        // Если сессия существует и пользователь уже залогинен — сразу на index
+        if (session != null && session.getAttribute("user") != null) {
+            resource = "/index.ftlh";
+        } else {
+            // Проверяем логин/пароль
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+
+            if ("admin".equals(username) && "admin".equals(password)) {
+                session = request.getSession(true);
+                session.setAttribute("user", username);
+                resource = "/index.ftlh";
+            } else {
+                request.setAttribute("errormessage", "Неверное имя пользователя или пароль!");
+                resource = "/login.ftlh";
+            }
+>>>>>>> refs/remotes/origin/master
         }
 
-        request.getRequestDispatcher(resource)
-                .forward(request, response);
+        request.getRequestDispatcher(resource).forward(request, response);
     }
 
 }
