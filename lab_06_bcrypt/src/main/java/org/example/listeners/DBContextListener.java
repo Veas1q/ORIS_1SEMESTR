@@ -15,12 +15,7 @@ public class DBContextListener implements ServletContextListener {
 
     public void contextInitialized(ServletContextEvent sce) {
         logger.debug("contextInitialized");
-        try {
-            DBConnection.init();
-        } catch (ClassNotFoundException e) {
-            logger.atError().withThrowable(e).log();
-            e.printStackTrace();
-        }
+        DBConnection.init();
     }
 
     public void contextDestroyed(ServletContextEvent sce) {

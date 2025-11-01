@@ -1,4 +1,4 @@
-package org.example.controllers;
+package org.example.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -9,7 +9,8 @@ import jakarta.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.model.User;
-import org.example.services.UserService;
+import org.example.serivce.UserService;
+
 
 import java.io.IOException;
 

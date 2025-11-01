@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.example.model.User;
 import org.example.services.UserService;
 
 import java.io.IOException;
@@ -32,14 +33,21 @@ public class UserCheckServlet extends HttpServlet {
             String password = request.getParameter("password");
             // select id, username, password from users where username = ? ;
 
-            if (username.equals("admin") && password.equals("admin")) {
-                session = request.getSession(true);
-                session.setAttribute("user", username);
-                resource = "/index.ftlh";
-            } else {
-                request.setAttribute("errormessage", "Неверное имя пользователя или пароль!");
-                resource = "/login.ftlh";
+            try {
+                User user = userService.validateUser(username, password);
+                if (user != null) {
+                    session = request.getSession(true);
+                    session.setAttribute("user", user);
+                    resource = "/index.ftlh";
+
+                } else {
+                    request.setAttribute("errormessage", "Неверное имя пользователя или пароль!");
+                    resource = "/login.ftlh";
+                }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
+
         }
 
         request.getRequestDispatcher(resource)

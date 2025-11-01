@@ -1,40 +1,41 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Регистрация</title>
-    <meta name="description" content="Регистрация">
-
+    <title>Registration</title>
 </head>
 <body>
+<h1>User Registration</h1>
 
-<div style="color:red">${errormessage!}</div>
+<#if errormessage??>
+    <div style="color: red;">
+        ${errormessage}
+    </div>
+</#if>
 
-<form action="registration" method="post">
+<form method="POST">
     <div>
-        <label>Фамилия</label>
-        <input type="text" name="lastname">
+        <label>Username:</label>
+        <input type="text" name="username" value="${username!''}">
     </div>
     <div>
-        <label>Имя</label>
-        <input type="text" name="firstname">
-    </div>
-    <div>
-        <label>Телефон</label>
-        <input type="text" name="phone">
-    </div>
-
-
-    <div>
-        <label>Логин</label>
-        <input type="text" name="username">
-    </div>
-    <div>
-        <label>Пароль</label>
+        <label>Password:</label>
         <input type="password" name="password">
     </div>
-    <input type="submit" value="Готово">
+    <div>
+        <label>First Name:</label>
+        <input type="text" name="firstname" value="${firstname!''}">
+    </div>
+    <div>
+        <label>Last Name:</label>
+        <input type="text" name="lastname" value="${lastname!''}">
+    </div>
+    <div>
+        <label>Phone:</label>
+        <input type="text" name="phone" value="${phone!''}">
+    </div>
+    <button type="submit">Register</button>
 </form>
 
+<a href="login" class="login-btn">Login </a>
 </body>
 </html>

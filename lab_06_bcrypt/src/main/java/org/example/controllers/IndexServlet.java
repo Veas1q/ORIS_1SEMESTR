@@ -19,7 +19,7 @@ public class IndexServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Сюда может попасть только аутентифицированный пользователь
         // значит в его сессии должен быть атрибут "user" (который мы положили при аутентификации)
-        request.setAttribute("user", request.getSession().getAttribute("user"));
+        request.setAttribute("user", request.getSession().getAttribute("username"));
 
         request.getRequestDispatcher("/index.ftlh")
                 .forward(request, response);

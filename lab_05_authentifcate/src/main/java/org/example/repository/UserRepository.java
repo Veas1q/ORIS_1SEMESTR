@@ -32,9 +32,9 @@ public class UserRepository {
             }
             return null;
         } finally {
-                if (connection != null) connection.close();
-                if (preparedStatement != null) preparedStatement.close();
-                if (resultSet != null) resultSet.close();
+            if (connection != null) connection.close();
+            if (preparedStatement != null) preparedStatement.close();
+            if (resultSet != null) resultSet.close();
         }
 
     };

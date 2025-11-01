@@ -1,4 +1,4 @@
-package org.example.services;
+package org.example.serivce;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.example.model.User;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="KubernetesApiProvider">{}</component>
+  <component name="KubernetesApiProvider"><![CDATA[{}]]></component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/lab_04_db/pom.xml" />
         <option value="$PROJECT_DIR$/lab_05_authentifcate/pom.xml" />
         <option value="$PROJECT_DIR$/lab_06_bcrypt/pom.xml" />
+        <option value="$PROJECT_DIR$/Kontrolnya/pom.xml" />
       </list>
     </option>
   </component>
