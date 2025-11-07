@@ -46,7 +46,7 @@ public class AddPlayerServlet extends HttpServlet {
             userService.addPlayer(player);
 
 
-            response.sendRedirect("show");
+            response.sendRedirect("/show");
 
         } catch (SQLException e) {
             request.setAttribute("error", "Ошибка при добавлении: " + e.getMessage());
