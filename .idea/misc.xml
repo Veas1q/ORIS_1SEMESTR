@@ -11,7 +11,15 @@
         <option value="$PROJECT_DIR$/lab_05_authentifcate/pom.xml" />
         <option value="$PROJECT_DIR$/lab_06_bcrypt/pom.xml" />
         <option value="$PROJECT_DIR$/Kontrolnya/pom.xml" />
+        <option value="$PROJECT_DIR$/lab_07_ajax/pom.xml" />
+        <option value="$PROJECT_DIR$/lab_08_ui/pom.xml" />
+        <option value="$PROJECT_DIR$/lab_09_components/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/lab_08_ui/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_24" project-jdk-name="24" project-jdk-type="JavaSDK">

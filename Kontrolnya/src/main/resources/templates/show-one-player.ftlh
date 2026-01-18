@@ -38,8 +38,6 @@
             <select id="game" name="game" required>
                 <option value="Dota 2" <#if player.game == 'Dota 2'>selected</#if>>Dota 2</option>
                 <option value="CS2" <#if player.game == 'CS2'>selected</#if>>CS2</option>
-                <option value="Valorant" <#if player.game == 'Valorant'>selected</#if>>Valorant</option>
-                <option value="League of Legends" <#if player.game == 'League of Legends'>selected</#if>>League of Legends</option>
             </select>
         </div>
 

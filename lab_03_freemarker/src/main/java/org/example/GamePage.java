@@ -29,11 +29,8 @@ public class GamePage extends HttpServlet {
         GameState gameState = new GameState();
         gamers.put(uid, gameState);
 
-        // Проверяем, началась ли игра
-        String start = req.getParameter("start");
-        boolean gameStarted = "true".equals(start);
 
-        if (gameStarted && gameState.getCurrentPlayer().equals("O")) {
+        if (gameState.getCurrentPlayer().equals("O")) {
             botPlayer.makeMove(gameState);
             gameState.switchPlayer();
         }
@@ -42,7 +39,6 @@ public class GamePage extends HttpServlet {
         req.setAttribute("uid", uid);
         req.setAttribute("currentPlayer", gameState.getCurrentPlayer());
         req.setAttribute("winner", gameState.getWinner());
-        req.setAttribute("gameStarted", gameStarted);
 
         req.getRequestDispatcher("/game.ftlh").forward(req, resp);
     }

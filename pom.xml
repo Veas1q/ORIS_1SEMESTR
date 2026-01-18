@@ -10,6 +10,16 @@
     <packaging>pom</packaging>
     <modules>
         <module>lab_01_httpserver</module>
+        <module>lab_02_servlet</module>
+        <module>lab_03_freemarker</module>
+        <module>lab_04_db</module>
+        <module>lab_05_authentifcate</module>
+        <module>lab_06_bcrypt</module>
+        <module>lab_07_ajax</module>
+        <module>lab_09_components</module>
+        <module>lab_10_UDP</module>
+        <module>lab_08_uii</module>
+        <module>lab_11_table</module>
     </modules>
 
     <properties>

@@ -34,8 +34,6 @@
             <option value="">Выберите игру</option>
             <option value="Dota 2">Dota 2</option>
             <option value="CS2">CS2</option>
-            <option value="Valorant">Valorant</option>
-            <option value="League of Legends">League of Legends</option>
         </select>
     </div>
 

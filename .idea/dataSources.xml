@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="demo@localhost" uuid="8d713b5c-f9a3-402b-9827-bf460db6122b">
+    <data-source source="LOCAL" name="ProPlayers" uuid="306d26b6-a55d-46e0-a2c1-f499c5d490dd">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/demo</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/ProPlayers</jdbc-url>
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
@@ -13,7 +13,7 @@
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="BCrypt" uuid="7c6977b4-94a7-4314-a6d1-6361e1559429">
+    <data-source source="LOCAL" name="BCypt" uuid="5de31a36-76fc-46b1-a2ea-dd13d935ddd0">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
@@ -25,11 +25,11 @@
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="ProPlayers" uuid="306d26b6-a55d-46e0-a2c1-f499c5d490dd">
+    <data-source source="LOCAL" name="lab07" uuid="e82940ab-99e8-416e-b27e-b1432bf3556b">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/ProPlayers</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/lab07</jdbc-url>
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
