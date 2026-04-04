@@ -50,7 +50,7 @@ public class FlightTablePanel extends JPanel {
 
         // модель таблицы:FEWFWEFGEGEGfff
         // columnsNames — заголовкFFFппппFFFппппfffв
-        // 0 — изначально нет строкаааgrgr
+        // 0 — изначально нет строкаааgrgrfff
         tableModel = new DefaultTableModel(columnsNames, 0) {
 
             // запрещаем редактирование ячеек
