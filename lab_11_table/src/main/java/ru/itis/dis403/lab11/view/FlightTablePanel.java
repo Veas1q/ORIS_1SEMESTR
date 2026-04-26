@@ -107,7 +107,7 @@ public class FlightTablePanel extends JPanel {
         }
     }
 
-    // настройка ширины столбцов
+    // настройка ширины столбцовgggg
     private void setColumnSize() {
 
         // получаем модель столбцов таблицы
