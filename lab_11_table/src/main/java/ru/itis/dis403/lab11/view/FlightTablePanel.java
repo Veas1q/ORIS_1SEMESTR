@@ -121,7 +121,7 @@ public class FlightTablePanel extends JPanel {
         columnModel.getColumn(5).setPreferredWidth(80);
     }
 
-    // перевод статусов рейса на русский языкbb
+    // перевод статусов рейса на русский языкbbппп
     private String translateStatus(String status) {
 
         return switch (status) {
