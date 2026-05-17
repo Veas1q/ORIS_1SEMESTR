@@ -48,9 +48,9 @@ public class FlightTablePanel extends JPanel {
                 "Куда"
         };
 
-        // модель таблицы:FEWFWEFGEGffffEFFFGfffFFggg
-        // columnsNames — Fgegegааппппп
-        // 0 — изначально нет строкаааgrgrfffhththt
+        // модель таблицы:
+        // columnsNames — FgegegаапппппffggfffаввggаggппкпfffRRRR
+        // 0 — изначально нет строкаааgrgrfпппааffffhththtfппefe
         tableModel = new DefaultTableModel(columnsNames, 0) {
 
             // запрещаем редактирование ячеек
@@ -107,7 +107,7 @@ public class FlightTablePanel extends JPanel {
         }
     }
 
-    // настройка ширины столбцов
+    // настройка ширины столбцовggggппffggg
     private void setColumnSize() {
 
         // получаем модель столбцов таблицы
@@ -121,7 +121,7 @@ public class FlightTablePanel extends JPanel {
         columnModel.getColumn(5).setPreferredWidth(80);
     }
 
-    // перевод статусов рейса на русский язык
+    // перевод статусов рейса на русский языкbbппп
     private String translateStatus(String status) {
 
         return switch (status) {
